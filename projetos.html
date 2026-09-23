@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projetos | ONG Transformar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="topo">
+        <div class="topo-interno">
+            <a class="marca" href="index.html">
+                <img class="marca-logo" src="imagem/logo.jpg" alt="Logo da ONG Transformar">
+                <h1>ONG Transformar</h1>
+            </a>
+            <nav aria-label="Navegação principal">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="projetos.html" aria-current="page">Projetos Sociais</a></li>
+                    <li><a href="cadastro.html">Engajamento</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="painel-intro">
+            <h2>Painel de Projetos</h2>
+            <p class="lead">Acompanhe o andamento das iniciativas da ONG Transformar com uma visão clara do impacto em educação e segurança alimentar.</p>
+        </section>
+
+        <section class="kpis" aria-label="Indicadores dos projetos">
+            <div class="kpi revelar">
+                <span>Projetos ativos</span>
+                <strong>2</strong>
+            </div>
+            <div class="kpi revelar">
+                <span>Meta anual</span>
+                <strong>78%</strong>
+            </div>
+            <div class="kpi revelar">
+                <span>Doações do mês</span>
+                <strong>R$ 24 mil</strong>
+            </div>
+            <div class="kpi revelar">
+                <span>Novos voluntários</span>
+                <strong>14</strong>
+            </div>
+        </section>
+
+        <section aria-labelledby="titulo-projetos">
+            <h2 id="titulo-projetos">Nossos Projetos</h2>
+            <div class="grade">
+                <article class="revelar">
+                    <img class="cartao-foto" src="imagem/imagem_tranformar.jpg" alt="Jovens em aula de programação do projeto Educação para o Futuro">
+                    <span class="badge">Em andamento</span>
+                    <h3>Educação para o Futuro</h3>
+                    <p>Aulas de reforço em exatas e programação para jovens de escolas públicas, com foco em inclusão digital e oportunidades no mercado de tecnologia.</p>
+                    <div class="progresso" aria-label="Progresso de 72 por cento">
+                        <span data-meta="72"></span>
+                    </div>
+                </article>
+                <article class="revelar">
+                    <span class="badge alerta">Captação aberta</span>
+                    <h3>Prato Cheio</h3>
+                    <p>Logística de arrecadação e distribuição de alimentos não perecíveis para famílias cadastradas em nossa base de apoio comunitário.</p>
+                    <div class="progresso" aria-label="Progresso de 84 por cento">
+                        <span data-meta="84"></span>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 ONG Transformar.</p>
+    </footer>
+    <script src="js/ui.js"></script>
+</body>
+</html>
