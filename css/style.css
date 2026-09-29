@@ -345,13 +345,25 @@ legend {
     padding: 0 0.5rem;
 }
 
-fieldset label:first-of-type {
-    margin-top: 0;
-}
+label {
+    display: block;
+    margin-top: 1rem;
     margin-bottom: 0.45rem;
     color: var(--text-muted);
     font-size: 0.9rem;
     font-weight: 600;
+}
+
+fieldset label:first-of-type,
+.form-grupo:first-of-type label {
+    margin-top: 0;
+}
+
+.ajuda-campo {
+    display: block;
+    margin-top: 0.35rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
 }
 
 input {
@@ -376,14 +388,31 @@ input:focus-visible {
     box-shadow: 0 0 0 4px rgba(47, 143, 107, 0.15);
 }
 
-.feedback-ok {
-    color: var(--accent-hover);
+#form-engajamento {
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.feedback-ok,
+.feedback-erro {
+    padding: 0.9rem 1.1rem;
+    border-radius: var(--radius-sm);
+    margin-top: 1.2rem;
     font-weight: 600;
+    text-align: center;
+    animation: subir 0.3s ease;
+}
+
+.feedback-ok {
+    background-color: var(--accent-soft);
+    color: var(--accent-hover);
+    border: 1px solid rgba(47, 143, 107, 0.3);
 }
 
 .feedback-erro {
+    background-color: #fde8e4;
     color: #c45c4a;
-    font-weight: 600;
+    border: 1px solid rgba(196, 92, 74, 0.3);
 }
 
 .revelar {
