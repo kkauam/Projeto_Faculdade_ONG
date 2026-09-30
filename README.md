@@ -14,29 +14,38 @@ A ONG Transformar é uma organização fictícia que atua conectando recursos e 
 
 ## Estrutura de pastas
 
+A arquitetura do projeto separa estritamente o código-fonte de desenvolvimento (`src/`) do código final empacotado para produção (`dist/`):
+
 ```
 site-ong-transformar/
-├── index.html            # Página inicial (Institucional, Indicadores e Dark Mode)
-├── projetos.html         # Página de Projetos Sociais e Metas
-├── cadastro.html         # Formulário acessível de engajamento e dados pessoais
-├── package.json          # Metadados e scripts de build
-├── build.js              # Pipeline de empacotamento modular e minificação
-├── vite.config.js        # Configuração para empacotamento multi-page
-├── .gitignore            # Ignora pastas de distribuição e dependências
-├── css/
-│   ├── style.css         # Ponto de entrada (Main CSS) que importa os módulos
-│   └── modules/          # Arquitetura modular de estilos
-│       ├── variables.css # Variáveis de tema (Modo Claro e Modo Escuro)
-│       ├── base.css      # Reset e estilos estruturais
-│       ├── layout.css    # Topo, rodapé, grids e hero
-│       ├── components.css# Cards, botões, badges, forms e alertas
-│       └── animations.css# Keyframes, transições e regras de responsividade
-├── js/
-│   ├── ui.js             # Gerenciamento de tema (Dark Mode) e barras de progresso
-│   └── cadastro.js       # Máscaras de regex, validação e busca de CEP (ViaCEP)
-└── imagem/
-    ├── logo.jpg
-    └── imagem_tranformar.jpg
+├── src/                          # 📁 CÓDIGO-FONTE DE DESENVOLVIMENTO
+│   ├── index.html                # Página inicial (Institucional, Indicadores e Dark Mode)
+│   ├── pages/                    # 📄 Páginas secundárias organizadas
+│   │   ├── projetos.html         # Página de Projetos Sociais e Metas
+│   │   └── cadastro.html         # Formulário acessível de engajamento
+│   └── assets/                   # 🎨 Recursos estáticos modulares
+│       ├── css/
+│       │   ├── style.css         # Ponto de entrada de estilos
+│       │   └── modules/          # Módulos: variables, base, layout, components, animations
+│       ├── js/
+│       │   ├── ui.js             # Gerenciamento de tema (Dark Mode) e barras
+│       │   └── cadastro.js       # Validações, máscaras e API ViaCEP
+│       └── images/               # Imagens e logotipos do projeto
+│
+├── dist/                         # 🚀 BUILD DE PRODUÇÃO (100% minificada e empacotada)
+│   ├── index.html
+│   ├── pages/
+│   │   ├── projetos.html
+│   │   └── cadastro.html
+│   └── assets/
+│       ├── css/style.css         # CSS único empacotado e minificado
+│       ├── js/ (ui.js, cadastro.js)
+│       └── images/
+│
+├── package.json                  # Scripts e metadados
+├── build.js                      # Pipeline automatizado de compilação src/ -> dist/
+├── vite.config.js                # Configurações de bundling
+└── .gitignore                    # Ignora pastas de distribuição e dependências
 ```
 
 ## Tecnologias utilizadas
