@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Animações, Utilitários e Responsividade
+   Animações, Utilitários e Responsividade (Mobile First & Refinado)
    ========================================================================== */
 
 /* Animações */
@@ -53,31 +53,181 @@ fieldset,
     to { width: var(--meta, 70%); }
 }
 
-/* Responsividade (Media Queries) */
+/* ==========================================================================
+   Breakpoints e Otimização para Tablets e Celulares (Responsividade Fluida)
+   ========================================================================== */
+
+/* Tablets e Telas Médias (<= 860px) */
 @media (max-width: 860px) {
-    .hero,
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .hero-visual {
+        order: -1;
+        max-height: 320px;
+    }
+
     .kpis {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.9rem;
     }
 }
 
-@media (max-width: 600px) {
+/* Celulares e Telas Pequenas (<= 640px) */
+@media (max-width: 640px) {
+    :root {
+        --radius: 14px;
+        --radius-sm: 10px;
+    }
+
     .topo {
-        padding: 0.9rem 1rem;
+        padding: 0.75rem 1rem;
+    }
+
+    .topo-interno {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+    }
+
+    .marca {
+        justify-content: center;
+    }
+
+    .marca-logo {
+        width: 44px;
+        height: 44px;
+    }
+
+    .marca h1 {
+        font-size: 1.05rem;
+    }
+
+    nav ul {
+        justify-content: center;
+        gap: 0.3rem;
+        width: 100%;
+    }
+
+    nav a {
+        padding: 0.45rem 0.75rem;
+        font-size: 0.88rem;
+    }
+
+    .btn-tema {
+        padding: 0.4rem 0.65rem;
+        font-size: 1rem;
     }
 
     main {
-        padding: 1.2rem 1rem 2rem;
+        padding: 1.2rem 1rem 2.2rem;
     }
 
-    .hero,
-    .kpis {
-        grid-template-columns: 1fr;
+    main h2 {
+        font-size: 1.6rem;
+    }
+
+    .lead {
+        font-size: 0.95rem;
+    }
+
+    /* Hero no celular */
+    .hero {
+        gap: 1.4rem;
+        margin-bottom: 1.8rem;
     }
 
     .hero-visual,
     .hero-visual img {
-        min-height: 200px;
+        min-height: 210px;
+        max-height: 240px;
+        border-radius: 18px;
+    }
+
+    .hero-acoes {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.65rem;
+    }
+
+    .hero-acoes .btn {
+        width: 100%;
+    }
+
+    /* KPIs em grade de 2 no mobile para melhor aproveitamento */
+    .kpis {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+        margin: 1.2rem 0 1.8rem;
+    }
+
+    .kpi {
+        padding: 1rem;
+    }
+
+    .kpi strong {
+        font-size: 1.4rem;
+    }
+
+    .kpi span {
+        font-size: 0.8rem;
+    }
+
+    /* Projetos e Cartões */
+    .grade {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .cartao,
+    article {
+        padding: 1.15rem;
+    }
+
+    .cartao-foto {
+        width: calc(100% + 2.3rem);
+        margin: -1.15rem -1.15rem 0.9rem;
+        height: 160px;
+    }
+
+    /* Formulário Mobile */
+    fieldset {
+        padding: 1.1rem;
+        margin-bottom: 1rem;
+    }
+
+    input {
+        padding: 0.75rem 0.85rem;
+        font-size: 0.95rem;
+    }
+
+    .btn {
+        padding: 0.85rem 1.2rem;
+        font-size: 0.92rem;
+    }
+
+    /* Footer Mobile */
+    footer {
+        padding: 1.8rem 1rem;
+    }
+
+    footer h2 {
+        font-size: 1.15rem;
+    }
+}
+
+/* Telas Muito Pequenas (<= 380px) */
+@media (max-width: 380px) {
+    .kpis {
+        grid-template-columns: 1fr;
+    }
+
+    nav a {
+        padding: 0.4rem 0.55rem;
+        font-size: 0.82rem;
     }
 }
 
