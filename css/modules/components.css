@@ -1,0 +1,242 @@
+/* ==========================================================================
+   Componentes Reutilizáveis (Cards, Botões, Formulários, Badges)
+   ========================================================================== */
+
+/* Cartões e KPIs */
+.kpi,
+article,
+.cartao {
+    background-color: var(--surface);
+    padding: 1.4rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.kpi:hover,
+article:hover,
+.cartao:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+    border-color: #c5ddd0;
+}
+
+.kpi span {
+    display: block;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.kpi strong {
+    display: block;
+    margin-top: 0.35rem;
+    font-size: 1.7rem;
+    color: var(--accent);
+}
+
+.cartao-foto {
+    display: block;
+    width: calc(100% + 2.8rem);
+    max-width: none;
+    height: 180px;
+    margin: -1.4rem -1.4rem 1rem;
+    object-fit: cover;
+    border-radius: var(--radius) var(--radius) 0 0;
+}
+
+/* Badges e Tags */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+    background: var(--accent-soft);
+    color: var(--accent-hover);
+}
+
+.badge.alerta {
+    background: var(--warm-soft);
+    color: #9a5c22;
+}
+
+/* Barra de Progresso */
+.progresso {
+    height: 8px;
+    background: var(--bg-accent);
+    border-radius: 999px;
+    overflow: hidden;
+    margin-top: 1rem;
+}
+
+.progresso span {
+    display: block;
+    height: 100%;
+    width: 0;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--accent), var(--sky));
+    animation: preencher 1.2s ease forwards;
+}
+
+/* Botões */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #3aa57c, var(--accent));
+    color: #fff;
+    border: none;
+    padding: 0.9rem 1.4rem;
+    font-size: 0.98rem;
+    font-weight: 700;
+    border-radius: 999px;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 10px 20px rgba(47, 143, 107, 0.22);
+    transition: transform var(--transition), box-shadow var(--transition), filter var(--transition);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.04);
+    box-shadow: 0 14px 24px rgba(47, 143, 107, 0.28);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-secundario {
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+    box-shadow: none;
+}
+
+.btn-tema {
+    background: var(--surface-soft);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 1.15rem;
+    padding: 0.45rem 0.75rem;
+    border-radius: 999px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    transition: background-color var(--transition), transform var(--transition), border-color var(--transition);
+}
+
+.btn-tema:hover {
+    background-color: var(--accent-soft);
+    color: var(--accent);
+    transform: scale(1.08);
+}
+
+.btn-tema:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--accent);
+}
+
+/* Formulário de Engajamento */
+#form-engajamento {
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+form.cartao:hover {
+    transform: none;
+}
+
+form .btn,
+button[type="submit"] {
+    width: 100%;
+    margin-top: 0.4rem;
+}
+
+fieldset {
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    margin-bottom: 1.3rem;
+    border-radius: var(--radius);
+    background-color: var(--surface);
+    box-shadow: var(--shadow);
+}
+
+legend {
+    color: var(--accent);
+    font-weight: 800;
+    padding: 0 0.5rem;
+}
+
+label {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 0.45rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+fieldset label:first-of-type,
+.form-grupo:first-of-type label {
+    margin-top: 0;
+}
+
+.ajuda-campo {
+    display: block;
+    margin-top: 0.35rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+input {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    background-color: var(--surface-soft);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    transition: border-color var(--transition), box-shadow var(--transition), background-color var(--transition);
+}
+
+input::placeholder {
+    color: #8aa092;
+}
+
+input:focus-visible {
+    outline: none;
+    border-color: var(--accent);
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(47, 143, 107, 0.15);
+}
+
+/* Feedbacks / Alertas */
+.feedback-ok,
+.feedback-erro {
+    padding: 0.9rem 1.1rem;
+    border-radius: var(--radius-sm);
+    margin-top: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+    animation: subir 0.3s ease;
+}
+
+.feedback-ok {
+    background-color: var(--accent-soft);
+    color: var(--accent-hover);
+    border: 1px solid rgba(47, 143, 107, 0.3);
+}
+
+.feedback-erro {
+    background-color: #fde8e4;
+    color: #c45c4a;
+    border: 1px solid rgba(196, 92, 74, 0.3);
+}

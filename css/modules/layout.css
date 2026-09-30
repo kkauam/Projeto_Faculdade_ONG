@@ -1,0 +1,171 @@
+/* ==========================================================================
+   Layout: Cabeçalho, Rodapé e Grelhas
+   ========================================================================== */
+
+/* Topo / Header */
+.topo {
+    background: var(--header-bg);
+    backdrop-filter: blur(16px);
+    padding: 1rem 2rem;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    animation: descer 0.5s ease;
+    transition: background-color var(--transition), border-color var(--transition);
+}
+
+.topo-interno {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.marca {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: var(--text);
+}
+
+.marca-logo {
+    width: 52px;
+    height: 52px;
+    object-fit: cover;
+    object-position: center 38%;
+    border-radius: 14px;
+    box-shadow: 0 8px 18px rgba(47, 143, 107, 0.22);
+    background: #fff;
+}
+
+.marca h1 {
+    margin: 0;
+    font-size: 1.15rem;
+    letter-spacing: -0.02em;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.55rem 0.9rem;
+    border-radius: 999px;
+    transition: background-color var(--transition), color var(--transition), transform var(--transition);
+}
+
+nav a:hover,
+nav a[aria-current="page"] {
+    color: var(--accent-hover);
+    background-color: var(--accent-soft);
+}
+
+nav a:hover {
+    transform: translateY(-1px);
+}
+
+/* Rodapé / Footer */
+footer {
+    text-align: center;
+    padding: 2.2rem 1.5rem;
+    background: var(--footer-bg);
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    transition: background-color var(--transition), border-color var(--transition);
+}
+
+footer h2 {
+    color: var(--text);
+    font-size: 1.25rem;
+    margin: 0 0 1rem;
+}
+
+footer address {
+    font-style: normal;
+    margin-bottom: 1rem;
+}
+
+footer address p {
+    margin: 0.4rem 0;
+}
+
+footer a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+footer a:hover {
+    color: var(--accent-hover);
+}
+
+/* Grids e Seções de Layout */
+.grade {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.1rem;
+}
+
+.kpis {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 1.4rem 0 2rem;
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: 1.3fr 0.9fr;
+    gap: 1.5rem;
+    align-items: center;
+    margin-bottom: 2.5rem;
+}
+
+.hero-texto h2 {
+    margin: 0 0 0.8rem;
+}
+
+.hero-texto p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    max-width: 60ch;
+}
+
+.hero-acoes {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    margin-top: 1.4rem;
+}
+
+.hero-visual {
+    margin: 0;
+    border-radius: 28px;
+    min-height: 280px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    animation: flutuar 6s ease-in-out infinite;
+}
+
+.hero-visual img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 280px;
+    object-fit: cover;
+}

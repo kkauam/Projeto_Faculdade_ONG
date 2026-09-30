@@ -1,0 +1,48 @@
+/* ==========================================================================
+   Variáveis Globais e Temas (Claro / Escuro)
+   ========================================================================== */
+
+:root {
+    --bg: #f3f7f4;
+    --bg-accent: #e7f2ea;
+    --surface: #ffffff;
+    --surface-soft: #f8fbf8;
+    --text: #24352c;
+    --text-muted: #5d7166;
+    --accent: #2f8f6b;
+    --accent-hover: #27775a;
+    --accent-soft: #d8efe4;
+    --warm: #e9b384;
+    --warm-soft: #f8eadc;
+    --sky: #4d93a8;
+    --sky-soft: #dceef3;
+    --border: #d7e4db;
+    --header-bg: rgba(255, 255, 255, 0.85);
+    --footer-bg: #ffffff;
+    --shadow: 0 10px 30px rgba(36, 53, 44, 0.08);
+    --shadow-hover: 0 16px 36px rgba(47, 143, 107, 0.16);
+    --radius: 18px;
+    --radius-sm: 12px;
+    --transition: 0.28s ease;
+}
+
+[data-tema="escuro"] {
+    --bg: #121815;
+    --bg-accent: #19241f;
+    --surface: #1a231f;
+    --surface-soft: #222d28;
+    --text: #e8f0ec;
+    --text-muted: #9eb5a8;
+    --accent: #4ade80;
+    --accent-hover: #22c55e;
+    --accent-soft: rgba(74, 222, 128, 0.15);
+    --warm: #f6ad55;
+    --warm-soft: rgba(246, 173, 85, 0.15);
+    --sky: #63b3ed;
+    --sky-soft: rgba(99, 179, 237, 0.15);
+    --border: #2d3e35;
+    --header-bg: rgba(18, 24, 21, 0.85);
+    --footer-bg: #161e1a;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    --shadow-hover: 0 16px 36px rgba(74, 222, 128, 0.18);
+}

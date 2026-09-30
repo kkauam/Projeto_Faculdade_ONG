@@ -17,6 +17,22 @@ function minifyCSS(css) {
         .trim();
 }
 
+// Concatena e resolve os @import do CSS em um único arquivo de produção
+function bundleCSS(entryPath) {
+    let cssContent = fs.readFileSync(entryPath, 'utf-8');
+    const importRegex = /@import\s+url\(["']?([^"')]+)["']?\);/g;
+
+    cssContent = cssContent.replace(importRegex, (match, relativeImportPath) => {
+        const fullImportPath = path.resolve(path.dirname(entryPath), relativeImportPath);
+        if (fs.existsSync(fullImportPath)) {
+            return fs.readFileSync(fullImportPath, 'utf-8');
+        }
+        return match;
+    });
+
+    return minifyCSS(cssContent);
+}
+
 // Função para minificar JS básico
 function minifyJS(js) {
     return js
@@ -52,7 +68,7 @@ function copyDirRecursive(src, dest) {
     }
 }
 
-console.log('🚀 Iniciando processo de Build e Minificação...');
+console.log('🚀 Iniciando processo de Build e Minificação Modular...');
 
 // 1. Limpa/recria dist
 if (fs.existsSync(distDir)) {
@@ -80,14 +96,12 @@ htmlFiles.forEach(file => {
     }
 });
 
-// 4. Minifica CSS
+// 4. Concatena Módulos CSS e Minifica
 const cssPath = path.join(__dirname, 'css', 'style.css');
 if (fs.existsSync(cssPath)) {
-    const original = fs.readFileSync(cssPath, 'utf-8');
-    const minified = minifyCSS(original);
-    fs.writeFileSync(path.join(distDir, 'css', 'style.css'), minified, 'utf-8');
-    const red = ((1 - minified.length / original.length) * 100).toFixed(1);
-    console.log(`✓ CSS Minificado: style.css (Redução de ${red}%)`);
+    const bundledAndMinifiedCSS = bundleCSS(cssPath);
+    fs.writeFileSync(path.join(distDir, 'css', 'style.css'), bundledAndMinifiedCSS, 'utf-8');
+    console.log(`✓ CSS Modular Empacotado e Minificado: dist/css/style.css (${(bundledAndMinifiedCSS.length / 1024).toFixed(2)} KB)`);
 }
 
 // 5. Minifica JS

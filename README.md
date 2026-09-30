@@ -16,14 +16,24 @@ A ONG Transformar é uma organização fictícia que atua conectando recursos e 
 
 ```
 site-ong-transformar/
-├── index.html
-├── projetos.html
-├── cadastro.html
+├── index.html            # Página inicial (Institucional, Indicadores e Dark Mode)
+├── projetos.html         # Página de Projetos Sociais e Metas
+├── cadastro.html         # Formulário acessível de engajamento e dados pessoais
+├── package.json          # Metadados e scripts de build
+├── build.js              # Pipeline de empacotamento modular e minificação
+├── vite.config.js        # Configuração para empacotamento multi-page
+├── .gitignore            # Ignora pastas de distribuição e dependências
 ├── css/
-│   └── style.css
+│   ├── style.css         # Ponto de entrada (Main CSS) que importa os módulos
+│   └── modules/          # Arquitetura modular de estilos
+│       ├── variables.css # Variáveis de tema (Modo Claro e Modo Escuro)
+│       ├── base.css      # Reset e estilos estruturais
+│       ├── layout.css    # Topo, rodapé, grids e hero
+│       ├── components.css# Cards, botões, badges, forms e alertas
+│       └── animations.css# Keyframes, transições e regras de responsividade
 ├── js/
-│   ├── ui.js
-│   └── cadastro.js
+│   ├── ui.js             # Gerenciamento de tema (Dark Mode) e barras de progresso
+│   └── cadastro.js       # Máscaras de regex, validação e busca de CEP (ViaCEP)
 └── imagem/
     ├── logo.jpg
     └── imagem_tranformar.jpg
@@ -31,15 +41,28 @@ site-ong-transformar/
 
 ## Tecnologias utilizadas
 
-- **HTML5** semântico (`<header>`, `<main>`, `<footer>`, `<section>`, `<article>`, `<address>`), com atributos de acessibilidade (`aria-label`, `aria-labelledby`, `aria-current`).
-- **CSS3**, com variáveis (custom properties), grid, animações e design responsivo.
-- **JavaScript puro (vanilla)**, sem frameworks:
-  - `ui.js` — anima as barras de progresso dos projetos.
-  - `cadastro.js` — aplica máscaras de CPF, telefone e CEP, valida o formulário e busca o endereço automaticamente a partir do CEP usando a API pública ViaCEP.
+- **HTML5** semântico (`<header>`, `<main>`, `<footer>`, `<section>`, `<article>`, `<address>`), com atributos de acessibilidade WAI-ARIA (`aria-label`, `aria-labelledby`, `aria-current`, `aria-live`).
+- **CSS3 Modular e Responsivo**, estruturado com variáveis (*Custom Properties*), suporte a Dark Mode, CSS Grid, Flexbox e animações fluidas.
+- **JavaScript Puro (Vanilla JS)**:
+  - `ui.js` — alternância acessível de Dark Mode com persistência (`localStorage`), detecção de preferências do sistema e animação de progresso.
+  - `cadastro.js` — validações dinâmicas, máscaras com regex para CPF/Telefone/CEP e consumo assíncrono da API pública ViaCEP.
+- **Node.js Pipeline (Build & Minify)** — script `build.js` que processa, empacota e minifica HTML, CSS e JS para a pasta `/dist` (redução média de ~25% no payload).
 
 ## Como executar
 
-Não há dependências nem processo de build. Basta abrir o arquivo `index.html` diretamente no navegador, ou servir a pasta com uma extensão como o *Live Server* do VS Code.
+### Desenvolvimento:
+Basta abrir o arquivo `index.html` diretamente no navegador, ou servir a pasta com uma extensão como o *Live Server* do VS Code.
+
+### Compilação para Produção (Build):
+Execute o comando abaixo para gerar a pasta `/dist` otimizada e minificada:
+```bash
+npm run build
+```
+
+## Deploy em Produção
+
+O projeto está publicado e acessível publicamente através da **Vercel**:
+🔗 **[https://faculdade-ong.vercel.app](https://faculdade-ong.vercel.app)**
 
 ## Autor
 
